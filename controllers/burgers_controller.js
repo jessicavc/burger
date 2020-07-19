@@ -1,4 +1,5 @@
 var express = require("express");
+
 var router = express.Router();
 
 var burger = require("../models/burger.js");
@@ -22,7 +23,7 @@ router.post("/", function(req,res){
 router.put("/:id", function(req,res){
   var condition = "id = " + req.params.id;
 
-//   console.log("condition", condition);
+  console.log("condition", condition);
 
   burger.updateOne({
     devoured: req.body.devoured
@@ -34,7 +35,7 @@ router.put("/:id", function(req,res){
 router.delete("/:id", function(req,res){
   var condition = "id = " + req.params.id;
 
-//   console.log("condition", condition);
+  console.log("condition", condition);
 
   burger.deleteOne(condition, function(){
     res.redirect("/");
