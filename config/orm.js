@@ -1,4 +1,4 @@
-var connection = require("../config/connection.js");
+var connection = require("./connection");
 
 //HELPER FUNCTIONS TAKEN FROM CATS APP ACTIVITY
 
@@ -21,11 +21,11 @@ function objToSql(ob) {
     var value = ob[key];
     // check to skip hidden properties
     if (Object.hasOwnProperty.call(ob, key)) {
-      // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
+    
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
       }
-
+     
       arr.push(key + "=" + value);
     }
   }
@@ -45,7 +45,7 @@ var orm = {
     },
     insertOne: function(table, cols, vals, cb) {
       var queryString = "INSERT INTO " + table;
-      // INSER INTO table_name (burger_name) VALUES (?, ?)
+      // INSERT INTO table_name (burger_name) VALUES (?, ?)
       queryString += " (";
       queryString += cols.toString();
       queryString += ") ";
