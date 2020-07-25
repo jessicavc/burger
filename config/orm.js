@@ -25,7 +25,7 @@ function objToSql(ob) {
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
       }
-  
+
       arr.push(key + "=" + value);
     }
   }
@@ -45,7 +45,7 @@ var orm = {
     },
     insertOne: function(table, cols, vals, cb) {
       var queryString = "INSERT INTO " + table;
-      // INSERT INTO table_name (burger_name) VALUES (?, ?)
+      // INSER INTO table_name (burger_name) VALUES (?, ?)
       queryString += " (";
       queryString += cols.toString();
       queryString += ") ";

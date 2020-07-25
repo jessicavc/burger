@@ -15,7 +15,7 @@ router.get("/", function(req, res) {
   });
 
 router.post("/", function(req,res){
-  burger.insertOne(["burger_name","devoured"], [req.body.burger_name, "0"], function(){
+  burger.insert1(["burger_name","devoured"], [req.body.burger_name, "0"], function(){
     res.redirect("/");
   });
 });
@@ -25,7 +25,7 @@ router.put("/:id", function(req,res){
 
   console.log("condition", condition);
 
-  burger.updateOne({
+  burger.update1({
     devoured: req.body.devoured
             }, condition, function() {
     res.redirect("/");
@@ -37,7 +37,7 @@ router.delete("/:id", function(req,res){
 
   console.log("condition", condition);
 
-  burger.deleteOne(condition, function(){
+  burger.delete1(condition, function(){
     res.redirect("/");
   });
 });
